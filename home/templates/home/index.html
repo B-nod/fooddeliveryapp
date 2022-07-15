@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+<title>Home Page</title>
+{% endblock%}
+
+
+{% block main_content %}
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="{% static 'images/1.jpg' %}" alt="First slide">
+          </div>
+         
+          </div>
+        </div>
+      </div>
+<!-- static file render -->
+<!-- <img src="{% static 'images/a.jpg' %}" alt=""> -->
+
+{% endblock %}
