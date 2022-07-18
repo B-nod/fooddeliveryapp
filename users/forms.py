@@ -11,9 +11,9 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput)
 
 class SignUpForm(UserCreationForm):
-    fname = forms.CharField(label='FIRST NAME', max_length=150, widget=forms.TextInput(attrs={'placeholder':'Enter your First Name'}))
-    lname = forms.CharField(label='LAST NAME', max_length=150, widget=forms.TextInput(attrs={'placeholder':'Enter your LAST NAME'}))
-    mobilenub = forms.CharField(label='MOBILE NUMBER',min_length=5, max_length=15, widget=forms.TextInput(attrs={'placeholder':'Enter your MOBILE NUMBER'}))
+    first_name = forms.CharField(label='FIRST NAME', max_length=150, widget=forms.TextInput(attrs={'placeholder':'Enter your First Name'}))
+    last_name = forms.CharField(label='LAST NAME', max_length=150, widget=forms.TextInput(attrs={'placeholder':'Enter your LAST NAME'}))
+    # mobilenub = forms.CharField(label='MOBILE NUMBER',min_length=5, max_length=15, widget=forms.TextInput(attrs={'placeholder':'Enter your MOBILE NUMBER'}))
     username = forms.CharField(label='USERNAME', min_length=5, max_length=150,  widget=forms.TextInput(attrs={'placeholder':'Enter your Username'}))  
     email = forms.EmailField(label='EMAIL ADDRESS', max_length=250, widget= forms.EmailInput
                            (attrs={'placeholder':'Enter your valid email'}))  
@@ -26,6 +26,21 @@ class SignUpForm(UserCreationForm):
         if new.count():  
             raise ValidationError("User Already Exist")  
         return username  
+
+    def clean_first_name(self):
+        first_name = self.cleaned_data['first_name']
+
+        return first_name
+
+    def clean_last_name(self):
+        last_name = self.cleaned_data['last_name']
+
+        return last_name
+    
+    # def clean_mobilenub(self):
+    #     mobilenub = self.cleaned_data['mobilenub']
+
+    #     return mobilenub
   
     def email_clean(self):  
         email = self.cleaned_data['email'].lower()  
@@ -43,14 +58,16 @@ class SignUpForm(UserCreationForm):
         return password2  
   
     def save(self, commit = True):  
-        user = User.objects.create_user(  
-            self.cleaned_data['username'],  
-            self.cleaned_data['email'],  
-            self.cleaned_data['password1']
-            # self.cleaned_data['fname'],
-            # self.cleaned_data['lname'],
+        user = User.objects.create_user(
+        self.cleaned_data['username'],
+        first_name=self.cleaned_data['first_name'],
+        last_name=self.cleaned_data['last_name'],
+        email=self.cleaned_data['email'],
+        password=self.cleaned_data['password1']
+        # mobilenub = self.cleaned_data['mobilenub']
+        )
             # self.cleaned_data['mobilenub']
-        )  
+         
         return user  
 
         
