@@ -2,6 +2,7 @@ from multiprocessing import context
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from home.models import *
 
 from .forms import LoginForm, SignUpForm
 
@@ -48,3 +49,10 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('/login')
+
+def homepage(request):
+    restaurents = Restaurent.objects.all().order_by('-id')[:8]
+    context = {
+        'restaurents': restaurents,
+    }
+    return render(request, 'users/index.html',context)

@@ -4,11 +4,14 @@ from django.core.validators import *
 from django.db import models
 
 # Create your models here.
-class Category(models.Model):
-    category_name = models.CharField(max_length=250, unique=True)
+class Restaurent(models.Model):
+    restaurent_name = models.CharField(max_length=250, unique=True)
+    restaurent_address = models.CharField(max_length=250)
+    restaurent_contact = models.CharField(max_length=10)
+    restaurent_image = models.FileField(upload_to='static/uploads', null=True)
 
     def __str__(self):
-        return self.category_name
+        return self.restaurent_name
 
 class FoodProduct(models.Model):
     food_name = models.CharField(max_length=250)
@@ -17,7 +20,7 @@ class FoodProduct(models.Model):
     image = models.FileField(upload_to='static/uploads', null=True)
     description = models.TextField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    category = models.ForeignKey(Category,on_delete=models.CASCADE, null=True)
+    restaurent = models.ForeignKey(Restaurent,on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.food_name

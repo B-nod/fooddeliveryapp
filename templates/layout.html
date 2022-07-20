@@ -20,18 +20,23 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <!-- favicon -->
-    <link rel="shortcut icon"
-        href="{% static 'images/foodtruck.JPG' %}"
-        type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'images/foodtruck.JPG' %}" type="image/x-icon">
     <style>
-       h1{
-        color: rgb(45, 94, 96);
-        text-shadow: 2px 4px 3px rgb(0 0 0 / 30%);
-        font-family: Tahoma, sans-serif;
-        font-weight: 700;
-        letter-spacing: 3px;
-       }
-       /* .truck{
+        h1 {
+            color: rgb(45, 94, 96);
+            text-shadow: 2px 4px 3px rgb(0 0 0 / 30%);
+            font-family: Tahoma, sans-serif;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .logo {
+            height: 2.2rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* .truck{
         width: 180px;
         height: 50px;
        }
@@ -49,10 +54,9 @@
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-between justify-content-lg-between">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none me-4">
-                    <img src="{% static 'images/foodtruck.JPG' %}"
-                        alt="" class="truck">
+                    <img src="{% static 'images/foodtruck.JPG' %}" alt="" class="truck">
                 </a>
-                
+
                 <h1 class="title">FOODPUR</h1>
                 <!-- <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
@@ -71,23 +75,23 @@
                     {% if user.is_authenticated %}
 
                     <a href="/products/mycart" class="btn btn-outline-dark  text-dark fs-4"><i
-                        class="fas fa-cart-plus position-relative">
-                        <span
-                            class="position-absolute top-0 start-100 bg-warning badge rounded-pill translate-middle text-dark">
-                            <span style="font-size: 12px;">
-                            {{ items|length }}
+                            class="fas fa-cart-plus position-relative">
+                            <span
+                                class="position-absolute top-0 start-100 bg-warning badge rounded-pill translate-middle text-dark">
+                                <span style="font-size: 12px;">
+                                    {{ items|length }}
+                                </span>
                             </span>
-                        </span>
-                    </i></a>
+                        </i></a>
                     <a href="/logout" class="btn btn-danger">Logout</a>
-                    
+
 
                     {% else %}
                     <a href="/login" class="loginbtn btn btn--hollow text-white">Login</a>
                     <!-- <a href="/register" class="btn btn-warning">Register</a> -->
 
                     {% endif %}
-                   
+
                 </div>
             </div>
         </div>
@@ -100,64 +104,66 @@
     </div>
 
     <!-- footer start  -->
-    <div class="container-fluid mt-4">
-        <footer class="p-5 bg-dark">
+    <div class="mt-4">
+        <footer class="p-5" style="background-color: #8E44AD;">
             <div class="row">
                 <div class="col-6 col-md-2 mb-3">
-                    <h5 class="text-white">Section</h5>
+                    <h5 class="text-white">WE'RE FOODPUR</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0  text-white">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Pricing</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0  text-white">About Us</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">available Areas</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Delivery Charges</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0  text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-3">
+                    <h5 class="text-white">GET HELP</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">How to Order?</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0  text-white">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Contact Us</a></li>
                     </ul>
                 </div>
 
                 <div class="col-6 col-md-2 mb-3">
-                    <h5 class="text-white">Section</h5>
+                    <h5 class="text-white">CALL US</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0  text-white">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0  text-white">About</a></li>
-                    </ul>
-                </div>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0  text-white">Bhaktapur :
+                                9880695785</a></li>
 
-                <div class="col-6 col-md-2 mb-3">
-                    <h5 class="text-white">Section</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0  text-white">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0  text-white">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0  text-white">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0  text-white">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-5 offset-md-1 mb-3">
-                    <form>
-                        <h5 class="text-white">Subscribe to our newsletter</h5>
-                        <p class="text-white">Monthly digest of what's new and exciting from us.</p>
-                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                            <label for="newsletter1" class="visually-hidden">Email address</label>
-                            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                            <button class="btn btn-primary" type="button">Subscribe</button>
-                        </div>
-                    </form>
+
+                    <h5 class="text-white">DOWNLOAD APP</h5>
+                    <ul class="nav d-flex">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><img
+                                    src="{% static 'images/itunes-app-store-logo.png' %}" class="logo" alt=""></a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0  text-white"><img
+                                    src="{% static 'images/google-play-store-logo.png' %}" class="logo" alt=""></a></li>
+                    </ul>
+                    <h5 class="text-white">CONNECT WITH US</h5>
+                    <ul class="nav d-flex justify-content-start">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link pl-1 text-white"><i class="fab fa-facebook-square fa-lg"></i></a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link pl-1  text-white"><i class="fab fa-twitter-square fa-lg"></i></a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link pl-1  text-white"><i class="fab fa-instagram fa-lg"></i></a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link pl-1  text-white"><i class="fab fa-youtube fa-lg"></i></a></li>
+                    </ul>
                 </div>
             </div>
 
             <div class="d-flex flex-column flex-sm-row justify-content-between p-4 my-4 border-top">
-                <p class="text-white">&copy; 2022 Company, Inc. All rights reserved.</p>
+                <p class="text-white">Terms of Usage | Privacy Policy</p>
+
                 <ul class="list-unstyled d-flex">
-                    <li class="ms-3"><a class="link-dark text-white fs-2" href="#"><i class="fab fa-facebook"></i></a>
+                    <p class="text-white">&copy; 2022 Foodpur Pvt Ltd., Inc. All rights reserved.</p>
+                    <!-- <li class="ms-3"><a class="link-dark text-white fs-2" href="#"><i class="fab fa-facebook"></i></a>
                     </li>
                     <li class="ms-3"><a class="link-dark text-white fs-2" href="#"><i class="fab fa-twitter"></i></a>
                     </li>
                     <li class="ms-3"><a class="link-dark text-white fs-2" href="#"><i class="fab fa-instagram"></i></a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </footer>

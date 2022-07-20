@@ -1,0 +1,93 @@
+<style>
+    .module {
+  background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGZvb2R8ZW58MHx8MHx8&w=1000&q=80);
+  background-size: cover;
+  height: 300px;
+  margin: 20px 0 10px 0;
+  position: relative;
+}
+
+h5
+.mid h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  color: white;
+  text-transform: uppercase;
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  font-size: 25px;
+  transform: translate(-50%, -50%);
+}
+.mid p {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+}
+</style>
+
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+<title>Foodpur - Home Page</title>
+{% endblock%}
+
+
+{% block main_content %}
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="{% static 'images/1.jpg' %}" alt="First slide">
+        </div>
+
+    </div>
+</div>
+
+<!-- static file render -->
+<!-- <img src="{% static 'images/a.jpg' %}" alt=""> -->
+
+<div class="container-fluid mt-4 ">
+    <h4>Foodpur Featured Restaurents</h4>
+    <div class="row row-cols-1 row-cols-md-4 g-4 mt-1">
+        
+        {% for restaurent in restaurents %}
+        <div class="col">
+            <div class="card shadow-lg">
+                <div class="card-img shadow-lg">
+                    <img src="/{{restaurent.restaurent_image}}" class="card-img-top"
+                        alt="{{restaurent.restaurent_name}}" height="250px">
+                </div>
+                <div class="card-body">
+                    <a href="" class="text-decoration-none text-center">
+                        <h5 class="card-title">{{restaurent.restaurent_name}}</h5>
+                        <p class="card-title">{{restaurent.restaurent_address}}</p>
+                    </a>
+
+                    <!-- <h5 class="card-title">Rs. {{product.product_price}}</h5>
+                    <a href="#" class="btn btn-success">View Details</a> -->
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="module mid">
+    <h2>About US</h2>
+    <p class="text-center">Foodpur is the fastest, easiest and most convenient way to enjoy the best food of your favourite restaurants at home, at the office or wherever you want to.</p>
+</div>
+{% endblock %}
