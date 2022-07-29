@@ -50,7 +50,7 @@
 
 {% block main_content %}
 <div class="d-flex justify-content-center">
-    <div class="col-md-6 mt-3">
+    <div class="col-md-6 my-3">
         {% for msg in messages %}
         {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
         <div class="alert alert-success">
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="form-row d-flex pt-3">
-                <div class="form-group col-md-5 mb-0">
+                <div class="form-group col-md-8 mb-0">
                   {{ form.username|as_crispy_field }}
                 </div>
                 

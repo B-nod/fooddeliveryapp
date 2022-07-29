@@ -7,7 +7,7 @@ from django.forms.fields import EmailField
 from django.forms.forms import Form  
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(label='EMAIL ADDRESS', max_length=250) 
+    username = forms.CharField(label='Username', max_length=250) 
     password = forms.CharField(widget=forms.PasswordInput)
 
 class SignUpForm(UserCreationForm):
